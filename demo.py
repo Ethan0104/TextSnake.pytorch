@@ -76,7 +76,7 @@ def main():
     test_loader = data.DataLoader(testset, batch_size=1, shuffle=False, num_workers=cfg.num_workers)
 
     # Model
-    model = TextNet(is_training=False, backbone=cfg.net)
+    model = TextNet(is_training=False, backbone=cfg.net, cuda=cfg.cuda)
     model_path = os.path.join(cfg.save_dir, cfg.exp_name, \
               'textsnake_{}_{}.pth'.format(model.backbone_name, cfg.checkepoch))
     model.load_model(model_path)
